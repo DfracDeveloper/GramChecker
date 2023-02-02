@@ -35,21 +35,18 @@ txt = st.text_area('Enter your text')
 
 if st.button('Check'):
     load_screen = 1
-    try:
-        while load_screen == 1:
-            with st.spinner('Correcting grammar, please wait!'):
-                corrected_text, errors = grammar_check(txt)
-                # Corrected Text
-                st.write("## Corrected Text")
-                st.write(corrected_text)
+    while load_screen == 1:
+        with st.spinner('Correcting grammar, please wait!'):
+            corrected_text, errors = grammar_check(txt)
+            # Corrected Text
+            st.write("## Corrected Text")
+            st.write(corrected_text)
 
-                # Mentioning Error Found
-                st.write("## Errors")
-                st.write(errors)
+            # Mentioning Error Found
+            st.write("## Errors")
+            st.write(errors)
 
-                load_screen = 0
-        st.snow()
-    except:
-        st.write("Something is wrong, try again!")
+            load_screen = 0
+    st.snow()
 else:
     pass
